@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was about Weather Forecast. In this project i will create an API on weather app and get the data from api and call my weatherapp data from the api and create the componets and render data inside it and create a context and add the whole functioality inside it.when we search the country or city name that will get the current data from the api and after that displayed on the screen after loading.if there is invalid invalid name that will display an error on the screen.
+This project was about Weather Forecast. In this project i will create an API on weather app and get the data from api and call my weatherapp data from the api and create the componets and render data inside it and create a context and add the whole functioality inside it.when we search the country or city name that will get the current data from the api and after that displayed on the screen after loading.if there is an invalid Country or city name that will display an error on the screen.
 
 ### `npm start`
 
