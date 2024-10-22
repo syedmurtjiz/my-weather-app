@@ -9,26 +9,25 @@ export const useWeather = () => {
 
 export const WeatherProvider = (props) => {
   const [data, setData] = useState(null);
-  const [searchCity, setSearchCity] = useState(null);
-  const [error, setError] = useState(null); // State to store error messages
+  const [searchCity, setSearchCity] = useState(""); // Initialize with an empty string
+  const [error, setError] = useState(null);
 
   // Function to fetch weather data for a city
   const fetchData = async () => {
-    setError(null); // Reset error before fetching
+    setError(null);
     if (!searchCity) {
-      setError("Please enter a city name."); // Handle empty input
+      setError("Please enter a city name.");
       return;
     }
     try {
       const response = await getWeatherDataForCity(searchCity);
       if (response.error) {
-        // Check for API-specific error messages
-        setError(response.error); // Set error message from API
+        setError(response.error);
       } else {
-        setData(response); // Store the fetched weather data
+        setData(response);
       }
     } catch (err) {
-      setError("City not found. Please try again."); // Set error message
+      setError("City not found. Please try again.");
     }
   };
 
@@ -36,23 +35,20 @@ export const WeatherProvider = (props) => {
   const fetchCurrentUserLocationData = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        getWeatherDataForLocation(
-          position.coords.latitude,
-          position.coords.longitude
-        )
+        getWeatherDataForLocation(position.coords.latitude, position.coords.longitude)
           .then((response) => {
             if (response.error) {
-              setError(response.error); // Handle API-specific error messages
+              setError(response.error);
             } else {
-              setData(response); // Store the fetched location-based weather data
+              setData(response);
             }
           })
-          .catch((err) => {
-            setError("Could not fetch weather data for your location."); 
+          .catch(() => {
+            setError("Could not fetch weather data for your location.");
           });
       },
-      (error) => {
-        setError("Geolocation not allowed or not supported."); // Handle geolocation errors
+      () => {
+        setError("Geolocation not allowed or not supported.");
       }
     );
   };
@@ -62,7 +58,7 @@ export const WeatherProvider = (props) => {
       value={{
         searchCity,
         data,
-        error, // Include error in the context
+        error,
         setSearchCity,
         fetchData,
         fetchCurrentUserLocationData,
