@@ -14,7 +14,7 @@ function App() {
   // useEffect hook to fetch user location data
   useEffect(() => {
     weather.fetchCurrentUserLocationData();
-  }, [weather]); // Ensured weather is included in the dependency array
+  }, []); // Ensured weather is included in the dependency array
 
   const handleFetchData = () => {
     setIsDisabled(true); // Disable button while loading

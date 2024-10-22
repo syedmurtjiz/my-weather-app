@@ -9,7 +9,7 @@ const Input = () => {
     <input
       className="input-field"
       placeholder="Search here"
-      value={weather.searchCity || ""}  
+      value={weather.searchCity}  
       onChange={(e) => weather.setSearchCity(e.target.value)}     />
   );
 };
