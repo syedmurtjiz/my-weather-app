@@ -11,14 +11,11 @@ function App() {
   const [loading, setLoading] = useState(false); // State to manage loading
   const [isDisabled, setIsDisabled] = useState(false); // State to manage button disabled
 
-  // Fetch user's current location weather data when the app loads
+  // useEffect hook to fetch user location data
   useEffect(() => {
-    if (weather) {
-      weather.fetchCurrentUserLocationData();
-    }
-  }, [weather]); // Include 'weather' to ensure the effect runs when 'weather' changes
+    weather.fetchCurrentUserLocationData();
+  }, [weather]); // Ensured weather is included in the dependency array
 
-  // Function to handle data fetching
   const handleFetchData = () => {
     setIsDisabled(true); // Disable button while loading
     setLoading(true); // Set loading state to true

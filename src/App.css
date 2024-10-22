@@ -12,36 +12,20 @@
       animation: App-logo-spin infinite 20s linear;
     }
   }
-  /* App.css */body {
+  /* App.css */
+body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  
-  /* Use absolute path if images are in public folder */
-  background-image: url('./images.jpeg'); 
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Full height of the viewport */
 
-  /* Add the keyframe animation */
-  animation: changeBackground 15s infinite;
+  /* Set the single background image */
+  background-image: url('./weather.jpg'); /* Change this to your desired image */
 }
 
-@keyframes changeBackground {
-  0% {
-    background-image: url('./weather.jpg');
-  }
-  33% {
-    background-image: url('./images\ \(5\).jpeg');
-  }
-  66% {
-    background-image: url('./images.jpeg');
-  }
-  100% {
-    background-image: url('./weather.jpg');
-  }
-}
 
 div {
   text-align: center;
