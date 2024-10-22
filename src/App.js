@@ -11,12 +11,9 @@ function App() {
   const [loading, setLoading] = useState(false); // State to manage loading
   const [isDisabled, setIsDisabled] = useState(false); // State to manage button disabled
 
-  console.log(weather);
-
   useEffect(() => {
-    
     weather.fetchCurrentUserLocationData();
-  }, []);
+  }, [weather]);
 
   const handleFetchData = () => {
     setIsDisabled(true); // Disable button while loading
@@ -24,7 +21,6 @@ function App() {
 
     weather.fetchData()
       .then(() => {
-        // Assuming fetchData returns a promise
         // Handle successful data fetch if needed
       })
       .catch(error => {
@@ -49,9 +45,11 @@ function App() {
       />
       <Card />
       <Button 
-        onClick={weather.fetchData} 
+        onClick={() => {
+          window.location.reload(); // Reload the page to fetch the previous data
+        }} 
         value="Refresh" 
-        className="refresh"
+        className="refresh" 
       /> 
     </div>
   );

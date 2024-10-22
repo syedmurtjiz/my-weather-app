@@ -1,6 +1,5 @@
 // Button.js
 import React from "react";
-// Import FontAwesomeIcon and the spinner icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
