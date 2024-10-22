@@ -8,8 +8,8 @@ const Input = () => {
     <input
       className="input-field"
       placeholder="Search here"
-      value={weather.searchCity || ""} // Ensure it's always a string
-      onChange={(e) => weather.setSearchCity(e.target.value)} // Update context state
+      value={weather.searchCity || ""} // Use empty string if null
+      onChange={(e) => weather.setSearchCity(e.target.value)}
     />
   );
 };

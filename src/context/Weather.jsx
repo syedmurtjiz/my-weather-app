@@ -3,10 +3,12 @@ import { getWeatherDataForCity, getWeatherDataForLocation } from "../api";
 
 const WeatherContext = createContext(null);
 
+// Custom hook to use the WeatherContext
 export const useWeather = () => {
   return useContext(WeatherContext);
 };
 
+// WeatherProvider component
 export const WeatherProvider = (props) => {
   const [data, setData] = useState(null);
   const [searchCity, setSearchCity] = useState(""); // Initialize with an empty string
@@ -33,6 +35,11 @@ export const WeatherProvider = (props) => {
 
   // Function to fetch weather data based on current user location
   const fetchCurrentUserLocationData = () => {
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by this browser.");
+      return;
+    }
+
     navigator.geolocation.getCurrentPosition(
       (position) => {
         getWeatherDataForLocation(position.coords.latitude, position.coords.longitude)
